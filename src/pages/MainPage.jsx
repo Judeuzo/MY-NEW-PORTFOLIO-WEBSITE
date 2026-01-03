@@ -66,8 +66,7 @@ const MainPage = () => {
           <span className="font-bold text-center">Jude Uzo</span>
         </h1>
         <p className="text-sm text-center max-w-md">
-          Welcome to my portfolio website. I am a fullstack and mobile
-          developer with experience in building scalable applications.
+          Welcome to my portfolio website. I am enthusiastic technician who likes to learn new things. I hope you enjoy exploring my portfolio and dont forget to contact me...
         </p>
                 <button
           onClick={() =>
