@@ -180,7 +180,7 @@ export default function Portfolio(selected) {
       
       <div className="bg-secondary py-20 px-10">
         <h2 className="text-white text-center text-2xl mb-10">
-          Eperience
+          Experience
         </h2>
 
 

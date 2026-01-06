@@ -7,9 +7,11 @@ import ContactMe from '../components/ContactMe';
 const MainPage = () => {
 
   const [selected,setSelected]=useState(null)
-  const portfolioRef = useRef(null)
+  const portfolioSectionRef = useRef(null)
+  const portFolioRef= useRef(null)
   const educationRef = useRef(null)
   const contactRef = useRef(null)
+  
 
   return (
     <div className=" max-w-400">
@@ -30,7 +32,7 @@ const MainPage = () => {
     <ul className="absolute right-0 mt-3 w-40 bg-black border-b-10 divide-y-1 divide-accent text-sm text-center overflow-hidden">
       <li
         onClick={() =>
-          portfolioRef.current?.scrollIntoView({ behavior: "smooth" })
+          portfolioSectionRef.current?.scrollIntoView({ behavior: "smooth" })
         }
         className="px-4 py-2 hover:bg-green-700 cursor-pointer"
       >
@@ -66,11 +68,11 @@ const MainPage = () => {
           <span className="font-bold text-center">Jude Uzo</span>
         </h1>
         <p className="text-sm text-center max-w-md">
-          Welcome to my portfolio website. I am enthusiastic technician who likes to learn new things. I hope you enjoy exploring my portfolio and dont forget to contact me...
+          I’m a tech enthusiast with a strong passion for learning and creating. Take a look around, explore my projects, and feel free to contact me — I’m always open to new opportunities and collaborations.
         </p>
                 <button
           onClick={() =>
-            portfolioRef.current?.scrollIntoView({ behavior: "smooth" })
+            portfolioSectionRef.current?.scrollIntoView({ behavior: "smooth" })
           }
           className="mt-4 border-3 text-white border-white hover:bg-secondary cursor-pointer max-w-50 text-black px-6 py-2 rounded"
         >
@@ -89,7 +91,7 @@ const MainPage = () => {
 
     {/* CARDS SECTION */}
 
-    <section ref={portfolioRef} className="bg-green-700 py-16">
+    <section ref={portfolioSectionRef} className="bg-green-700 py-16">
       <h2 className="text-center text-white text-xl mb-10">
         Portfolio
       </h2>
@@ -97,7 +99,7 @@ const MainPage = () => {
       <div className="flex flex-col md:flex-row justify-center items-center gap-6 px-6">
         {portfolioCards.map((i) => (
           <div
-            onClick={()=>portfolio.map((e)=>{e.title==i.title?setSelected(e):null})}
+            onClick={()=>portfolio.map((e)=>{e.title==i.title?setSelected(e):null;portFolioRef.current?.scrollIntoView({ behavior: "smooth" })})}
             key={i}
             className={`bg-primary text-white hover:-translate-y-1 cursor-pointer w-64 p-6 min-h-50 flex flex-col justify-center rounded-xl text-center ${selected?.title==i.title && 'border-5'}`}
           >
@@ -117,9 +119,11 @@ const MainPage = () => {
 
 
     {selected ? (
-  <Portfolio selected={selected} />
+  <div ref={portFolioRef} >
+    <Portfolio selected={selected} />
+  </div>
 ) : (
-  <div className="h-100 flex flex-col justify-center items-center text-primary">
+  <div className="h-100 flex flex-col justify-center items-center ">
     <img
       src="SVG.svg"
       className="w-50 animate-bounce"
